@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "rails_helper"
+
 RSpec.describe "RSpecの練習" do
   describe "基本的なテスト" do
     it "1 + 1 は 2 になる" do

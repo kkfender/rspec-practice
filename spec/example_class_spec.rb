@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative "../lib/example"
+require "rails_helper"
 
 RSpec.describe Example do
   describe "#initialize" do
