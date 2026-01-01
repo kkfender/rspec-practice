@@ -3,17 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe Note, type: :model do
-  before do
-    @user = User.create(
-      first_name: 'Taro', 
-      last_name: 'Yamada',
-      )
-
-    @project = @user.projects.create(
-      name: 'Test Project'
-    )
-
+  it "delegates name to the user who created it" do
+    user = FactoryBot.create(:user, first_name: "Fale", last_name: "User")
+    note = Note.new(user: user)
+    expect(note.name).to eq("Fale User")
   end
-
-
 end

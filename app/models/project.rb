@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
 class Project < ApplicationRecord
-  validates :name, presence: true, uniqueness: { scope: :user_id }
+  validates :name, presence: true
+  has_many :tasks, dependent: :destroy
 end
