@@ -4,8 +4,9 @@ require 'rails_helper'
 
 RSpec.describe Note, type: :model do
   it "delegates name to the user who created it" do
-    user = FactoryBot.create(:user, first_name: "Fale", last_name: "User")
-    note = Note.new(user: user)
-    expect(note.name).to eq("Fale User")
+    user = instance_double('User', name: 'Fake User')
+    note = Note.new
+    allow(note).to receive(:user).and_return(user)
+    expect(note.name).to eq('Fake User')
   end
 end
